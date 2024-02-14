@@ -17,9 +17,9 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
 };
@@ -52,6 +52,3 @@ pnpm build
 ```sh
 pnpm lint
 ```
-## LICENSE
-Hiveify is open source software licensed as
-[AGPL V3.0](https://github.com/wujunyi0907/hiveify/blob/master/LICENSE).

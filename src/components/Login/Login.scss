@@ -1,0 +1,102 @@
+$primary-color: #4460f1;
+$dark-color: #333333;
+$light-bg-color: #f2f4ff;
+.login {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: $dark-color;
+
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+
+    .register {
+      flex: 1 0 66.6666%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 50px;
+      padding: 70px 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 15%;
+        left: 0;
+        width: 280px;
+        height: 100px;
+        background: linear-gradient(to right, $primary-color, #c471ed, #f64f59);
+        z-index: -1;
+        filter: blur(70px);
+      }
+
+      h1 {
+        font-size: 3em;
+        line-height: normal;
+        color: black;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        a {
+          text-decoration: none;
+          color: inherit;
+          font-weight: 500;
+          color: $primary-color;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $dark-color;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .form {
+      flex: 1 0 33.3333%;
+
+      :where(.css-dev-only-do-not-override-1rqnfsa).ant-input-outlined {
+        line-height: 3.5;
+        background-color: $light-bg-color;
+        border-width: 0;
+      }
+      :where(
+          .css-dev-only-do-not-override-1rqnfsa
+        ).ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
+        border-width: 1px;
+      }
+
+      :where(.css-dev-only-do-not-override-1rqnfsa).ant-input-affix-wrapper
+        .ant-input-prefix {
+        color: rgba(0, 0, 0, 0.25);
+      }
+      :where(.css-dev-only-do-not-override-1rqnfsa)
+        .ant-input-outlined.ant-input-status-error:not(.ant-input-disabled)
+        .ant-input-prefix {
+        color: #ff4d4f;
+      }
+
+      .other .ant-form-item-control-input-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .submit-btn {
+        width: 100%;
+        height: unset;
+        font-size: 1.25em;
+        line-height: 2.5;
+      }
+    }
+  }
+}
