@@ -1,16 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/Login/Login";
+import { RouterProvider } from "react-router-dom";
+import { Spin } from "antd";
+
 import "./App.scss";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-  },
-]);
+import router from "@/router/router";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} fallbackElement={<Spin />} />;
 }
 
 export default App;
