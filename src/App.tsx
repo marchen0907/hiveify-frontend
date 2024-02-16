@@ -3,7 +3,7 @@ import { Spin } from "antd";
 
 import "./App.scss";
 
-import router from "@/router/router";
+import router from "@/router";
 
 function App() {
   return <RouterProvider router={router} fallbackElement={<Spin />} />;

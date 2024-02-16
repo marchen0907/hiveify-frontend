@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, Spin, message } from "antd";
 import { useCookies } from "react-cookie";
 
 import { login } from "@/api/user";
+import { useAppDispatch } from "@/store/hook";
+import { asyncSetUser } from "@/store/modules/userSlice";
 
 import publicSecurity from "@/assets/images/login/public-security.webp";
 import "./UserLogin.scss";
-import { useLocation, useNavigate } from "react-router-dom";
 
 interface LoginInfo {
   email: string;
@@ -18,6 +20,7 @@ interface LoginInfo {
 const UserLogin: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useAppDispatch();
   const [loading, setLoading] = useState<boolean>(false);
   const [, setCookie] = useCookies<string>(["Authorization"]);
   const from = location.state?.from?.pathname || "/";
@@ -32,6 +35,7 @@ const UserLogin: React.FC = () => {
         setCookie("Authorization", res.data, {
           expires: expirationDate,
         });
+        dispatch(asyncSetUser());
         navigate(from, { replace: true });
       })
       .finally(() => {
