@@ -13,10 +13,9 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://www.wujunyi.cn/api",
-        // target: 'http://116.63.133.134:8090',
+        target: "https://www.wujunyi.cn",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path,
       },
     },
   },
