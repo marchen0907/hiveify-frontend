@@ -6,6 +6,7 @@ import { message } from "antd";
 
 const service = axios.create({
   baseURL: "/api",
+  // 请求时是否携带cookie
   withCredentials: true,
 });
 

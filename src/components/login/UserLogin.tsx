@@ -25,6 +25,7 @@ const UserLogin: React.FC = () => {
   const [, setCookie] = useCookies<string>(["Authorization"]);
   const from = location.state?.from?.pathname || "/";
 
+  // 校验通过后登陆获取token并设置cookie，获取用户信息，页面跳转
   const onFinish = (values: LoginInfo) => {
     setLoading(true);
     login(values.email, values.password)

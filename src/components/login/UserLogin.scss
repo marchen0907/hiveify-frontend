@@ -71,24 +71,20 @@ $light-bg-color: #f2f4ff;
       .form {
         flex: 1 0 33.3333%;
 
-        :where(.css-dev-only-do-not-override-1rqnfsa).ant-input-outlined {
+        .ant-input-outlined {
           line-height: 3.5;
           background-color: $light-bg-color;
           border-width: 0;
-        }
-        :where(
-            .css-dev-only-do-not-override-1rqnfsa
-          ).ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
-          border-width: 1px;
+          &.ant-input-status-error:not(.ant-input-disabled) {
+            border-width: 1px;
+          }
         }
 
-        :where(.css-dev-only-do-not-override-1rqnfsa).ant-input-affix-wrapper
-          .ant-input-prefix {
+        .ant-input-prefix {
           color: rgba(0, 0, 0, 0.25);
         }
-        :where(.css-dev-only-do-not-override-1rqnfsa)
-          .ant-input-outlined.ant-input-status-error:not(.ant-input-disabled)
-          .ant-input-prefix {
+        
+        .ant-input-status-error:not(.ant-input-disabled) .ant-input-prefix {
           color: #ff4d4f;
         }
 
@@ -117,7 +113,7 @@ $light-bg-color: #f2f4ff;
       color: inherit;
       text-decoration: none;
     }
-    :last-child{
+    :last-child {
       :first-child {
         margin-left: 20px;
       }
