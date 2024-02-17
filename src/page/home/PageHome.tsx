@@ -1,11 +1,20 @@
-import { useAppSelector } from "@/store/hook";
+import type { FC } from "react";
 
-const PageHome: React.FC = () => {
-  const user = useAppSelector((state) => state.user);
+import { Layout } from "antd";
+
+import PageSider from "@/components/layout/sider/PageSider";
+import PageContent from "@/components/layout/content/PageContent";
+
+const { Sider } = Layout;
+
+const PageHome: FC = () => {
   return (
-    <div>
-      <h1>Hello {user.email}</h1>
-    </div>
+    <Layout style={{ width: "100%" }}>
+      <Sider width={250}>
+        <PageSider />
+      </Sider>
+      <PageContent />
+    </Layout>
   );
 };
 

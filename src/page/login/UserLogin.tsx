@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { FC } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, Spin, message } from "antd";
@@ -17,7 +18,7 @@ interface LoginInfo {
   remember: boolean;
 }
 
-const UserLogin: React.FC = () => {
+const UserLogin: FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useAppDispatch();
