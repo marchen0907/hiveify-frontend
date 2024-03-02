@@ -1,8 +1,5 @@
-import axios, {
-  type InternalAxiosRequestConfig,
-  type AxiosResponse,
-} from "axios";
-import { message } from "antd";
+import axios, {type AxiosResponse, type InternalAxiosRequestConfig,} from "axios";
+import {message} from "antd";
 
 const service = axios.create({
   baseURL: "/api",
@@ -14,8 +11,7 @@ const service = axios.create({
 service.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     // 在发送请求之前做些什么
-    const axiosConfig = config;
-    return axiosConfig;
+    return config;
   },
   (error) => {
     // 对请求错误做些什么
@@ -29,8 +25,9 @@ service.interceptors.response.use(
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
     if (response.data.code && response.data.code !== 200) {
-      message.error(response.data.msg || "请求出错！");
-      return Promise.reject(response.data.msg);
+      const err: string = response.data.message || "请求出错！";
+      message.error(err);
+      return Promise.reject(err);
     }
     return response.data;
   },

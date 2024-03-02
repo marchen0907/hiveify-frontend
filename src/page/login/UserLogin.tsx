@@ -121,15 +121,15 @@ const UserLogin: FC = () => {
         </p>
         <p>
           <a href="https://beian.miit.gov.cn/" target="_blank">
-            滇ICP备2021003969号-2
+            滇ICP备xxxxxxxxxxxx号
           </a>
           <a
-            href="https://beian.mps.gov.cn/#/query/webSearch?code=53011402000504"
+            href="https://beian.mps.gov.cn/#/query/webSearch?code=xxxxxxxxxxxxx"
             rel="noreferrer"
             target="_blank"
           >
             <img src={publicSecurity} alt="公安备案图标" />
-            <span>滇公网安备53011402000504号</span>
+            <span>滇公网安备xxxxxxxxxxxxx号</span>
           </a>
         </p>
       </div>
