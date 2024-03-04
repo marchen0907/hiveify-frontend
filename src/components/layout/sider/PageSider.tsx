@@ -140,9 +140,9 @@ const PageSider: FC = () => {
           <span className="sub-tab-item-text">下载</span>
         </Link>
         <Link
-          to="/transmission/succeed"
+          to="/transmission/finished"
           className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/transmission/succeed",
+            "is-active": location.pathname === "/transmission/finished",
           })}
         >
           <SucceedIcon />

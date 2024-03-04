@@ -1,4 +1,7 @@
-.ant-layout-header {
+.page-content {
+  padding-top: 24px;
+
+  .ant-layout-header {
     background: #ffffff;
 
     .content-header {
@@ -6,5 +9,101 @@
       height: 100%;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+
+      .header-title {
+        span, .ant-breadcrumb {
+          font-size: 18px;
+          line-height: 1.4;
+          font-weight: 400;
+        }
+        span, .ant-breadcrumb>ol>li:last-child>a {
+          color: #25262b;
+          font-weight: 600;
+          vertical-align: baseline;
+          &:hover {
+            background: inherit;
+          }
+        }
+        .ant-breadcrumb>ol>li:not(:last-child)>a:hover {
+          color: #7a90ff;
+          background: inherit;
+        }
+      }
+
+      .header-search {
+        color: rgba(#25262b, .36);
+        background: rgba(#84858d, .07);
+        box-shadow: none;
+      }
     }
   }
+}
+
+.header-search-modal {
+  .ant-modal-content {
+    padding: 20px 0;
+
+    .ant-modal-close {
+      top: 35px;
+    }
+    
+    .ant-modal-header {
+      padding: 0 24px;
+
+      .ant-modal-title {
+        padding: 10px 20px 10px 0;
+        
+        .header-search-input {
+          font-size: 18px;
+        
+        }
+      }
+    }
+
+    .ant-modal-body {
+      max-height: max(456px,100vh - 330px);
+      overflow-y: auto;
+
+      .search-result {
+        padding: 0 24px;
+        list-style: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+
+        .search-result-item {
+          height: 48px;
+          display: flex;
+          align-items: center;
+
+          .anticon {
+            font-size: 32px;
+            margin-right: 12px;
+          }
+          p {
+            font-size: 17px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+          }
+        }
+      }
+
+      .search-result-footer {
+        padding: 20px 24px 0;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid rgba(#84858d, .08);
+
+        .anticon {
+          font-size: 24px;
+          margin-right: 12px;
+        }
+        p {
+          font-size: 17px;
+          margin-block-start: 0;
+          margin-block-end: 0;
+        }
+      }
+    }
+  }
+}
