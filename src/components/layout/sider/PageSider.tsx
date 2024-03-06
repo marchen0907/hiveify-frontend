@@ -9,6 +9,7 @@ import classnames from "classnames";
 
 import { useAppDispatch } from "@/store/hook";
 import { removeUser } from "@/store/modules/userSlice";
+import { MoreIcon } from "@/components/icon/CommonIcon";
 import {
   LogoIcon,
   FolderIcon,
@@ -18,12 +19,11 @@ import {
   DocumentIcon,
   VideoIcon,
   AudioIcon,
-  OtherIcon,
   UploadIcon,
   DownloadIcon,
   SucceedIcon,
   SyncIcon,
-} from "./SiderIcon";
+} from "@/components/icon/SiderIcon";
 
 import "./PageSider.scss";
 
@@ -102,7 +102,7 @@ const PageSider: FC = () => {
             "is-active": location.pathname === "/group/other",
           })}
         >
-          <OtherIcon />
+          <MoreIcon />
           <span className="sub-tab-item-text">其他</span>
         </Link>
         <Divider />

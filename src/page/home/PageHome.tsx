@@ -5,9 +5,11 @@ import { Layout } from "antd";
 import PageSider from "@/components/layout/sider/PageSider";
 import PageContent from "@/components/layout/content/PageContent";
 
+import "./PageHome.scss";
+
 const PageHome: FC = () => {
   return (
-    <Layout style={{ width: "100%" }}>
+    <Layout className="page-home">
       <PageSider />
       <PageContent />
     </Layout>

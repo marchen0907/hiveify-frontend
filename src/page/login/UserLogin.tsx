@@ -24,7 +24,7 @@ const UserLogin: FC = () => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState<boolean>(false);
   const [, setCookie] = useCookies<string>(["Authorization"]);
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/home";
 
   // 校验通过后登陆获取token并设置cookie，获取用户信息，页面跳转
   const onFinish = (values: LoginInfo) => {
@@ -121,15 +121,15 @@ const UserLogin: FC = () => {
         </p>
         <p>
           <a href="https://beian.miit.gov.cn/" target="_blank">
-            滇ICP备xxxxxxxxxxxx号
+            滇ICP备2021003969号-2
           </a>
           <a
-            href="https://beian.mps.gov.cn/#/query/webSearch?code=xxxxxxxxxxxxx"
+            href="https://beian.mps.gov.cn/#/query/webSearch?code=53062702530728"
             rel="noreferrer"
             target="_blank"
           >
             <img src={publicSecurity} alt="公安备案图标" />
-            <span>滇公网安备xxxxxxxxxxxxx号</span>
+            <span>滇公网安备53062702530728</span>
           </a>
         </p>
       </div>

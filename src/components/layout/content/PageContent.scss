@@ -1,5 +1,6 @@
 .page-content {
   padding-top: 24px;
+  background: #ffffff;
 
   .ant-layout-header {
     background: #ffffff;
@@ -38,6 +39,11 @@
       }
     }
   }
+
+  .ant-layout-content {
+    flex-grow: 1;
+    padding: 0 50px;
+  }
 }
 
 .header-search-modal {
@@ -64,6 +70,7 @@
     .ant-modal-body {
       max-height: max(456px,100vh - 330px);
       overflow-y: auto;
+      scroll-behavior: smooth;
 
       .search-result {
         padding: 0 24px;

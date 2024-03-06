@@ -1,5 +1,8 @@
-import axios, {type AxiosResponse, type InternalAxiosRequestConfig,} from "axios";
-import {message} from "antd";
+import axios, {
+  type InternalAxiosRequestConfig,
+  type AxiosResponse,
+} from "axios";
+import { message } from "antd";
 
 const service = axios.create({
   baseURL: "/api",
