@@ -13,12 +13,14 @@
       justify-content: space-between;
 
       .header-title {
-        span, .ant-breadcrumb {
+        span,
+        .ant-breadcrumb {
           font-size: 18px;
           line-height: 1.4;
           font-weight: 400;
         }
-        span, .ant-breadcrumb>ol>li:last-child>a {
+        span,
+        .ant-breadcrumb > ol > li:last-child > a {
           color: #25262b;
           font-weight: 600;
           vertical-align: baseline;
@@ -26,15 +28,15 @@
             background: inherit;
           }
         }
-        .ant-breadcrumb>ol>li:not(:last-child)>a:hover {
+        .ant-breadcrumb > ol > li:not(:last-child) > a:hover {
           color: #7a90ff;
           background: inherit;
         }
       }
 
       .header-search {
-        color: rgba(#25262b, .36);
-        background: rgba(#84858d, .07);
+        color: rgba(#25262b, 0.36);
+        background: rgba(#84858d, 0.07);
         box-shadow: none;
       }
     }
@@ -53,22 +55,21 @@
     .ant-modal-close {
       top: 35px;
     }
-    
+
     .ant-modal-header {
       padding: 0 24px;
 
       .ant-modal-title {
         padding: 10px 20px 10px 0;
-        
+
         .header-search-input {
           font-size: 18px;
-        
         }
       }
     }
 
     .ant-modal-body {
-      max-height: max(456px,100vh - 330px);
+      max-height: max(456px, 100vh - 330px);
       overflow-y: auto;
       scroll-behavior: smooth;
 
@@ -99,7 +100,7 @@
         padding: 20px 24px 0;
         display: flex;
         align-items: center;
-        border-top: 1px solid rgba(#84858d, .08);
+        border-top: 1px solid rgba(#84858d, 0.08);
 
         .anticon {
           font-size: 24px;

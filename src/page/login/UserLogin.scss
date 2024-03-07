@@ -38,7 +38,12 @@ $light-bg-color: #f2f4ff;
           left: 0;
           width: 280px;
           height: 100px;
-          background: linear-gradient(to right, $primary-color, #c471ed, #f64f59);
+          background: linear-gradient(
+            to right,
+            $primary-color,
+            #c471ed,
+            #f64f59
+          );
           z-index: -1;
           filter: blur(70px);
         }
@@ -82,7 +87,7 @@ $light-bg-color: #f2f4ff;
         .ant-input-prefix {
           color: rgba(0, 0, 0, 0.25);
         }
-        
+
         .ant-input-status-error:not(.ant-input-disabled) .ant-input-prefix {
           color: #ff4d4f;
         }
