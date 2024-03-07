@@ -43,6 +43,7 @@
       position: sticky;
       background: rgba(#84858b, .07);
     }
+
     &::after {
       position: absolute;
       background: #ffffff;
@@ -182,7 +183,97 @@
             }
           }
         }
+
+
+      }
+    }
+
+    .create-btn {
+      width: 56px;
+      height: 56px;
+      inset-inline-end: 70px;
+    }
+
+    .checked-btn-group {
+      width: auto;
+      padding: 8px 16px;
+      display: flex;
+      inset-inline-end: 40%;
+      background: #313136;
+      opacity: 0;
+      transition: opacity .3s ease;
+
+      &.fade-enter-active {
+        opacity: 1;
+        animation: move-up ease .3s;
+      }
+
+      &.fade-exit-active {
+        opacity: 0;
+        animation: move-down ease .3s;
+      }
+
+      &.fade-enter-done {
+        opacity: 1;
+      }
+
+      .checked-btn-item {
+        background: inherit;
+        border-bottom: none;
+
+        .ant-float-btn-body {
+          background: inherit;
+
+          &:hover {
+            background: rgba(#ffffff, .18);
+          }
+
+          .ant-float-btn-content {
+            min-width: 40px;
+
+            .ant-float-btn-icon {
+              color: #ffffff;
+            }
+          }
+        }
+
+        &:not(:first-child):not(:last-child) {
+          margin: 0 4px;
+        }
+
+        &:first-child {
+          border-end-start-radius: 8px;
+          border-start-end-radius: 0;
+        }
+
+        &:last-child {
+          border-start-end-radius: 8px;
+          border-end-start-radius: 0;
+
+          .ant-float-btn-body:hover .ant-float-btn-icon {
+            color: #ff474f;
+          }
+        }
+      }
+
+      @keyframes move-up {
+        0% {
+          inset-block-end: -60px;
+        }
+        100% {
+          inset-block-end: 48px;
+        }
+      }
+
+      @keyframes move-down {
+        0% {
+          inset-block-end: 48px;
+        }
+        100% {
+          inset-block-end: -60px;
+        }
       }
     }
   }
 }
+

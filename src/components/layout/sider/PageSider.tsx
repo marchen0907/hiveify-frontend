@@ -9,10 +9,9 @@ import classnames from "classnames";
 
 import { useAppDispatch } from "@/store/hook";
 import { removeUser } from "@/store/modules/userSlice";
-import { MoreIcon } from "@/components/icon/CommonIcon";
+import { FolderIcon, MoreIcon } from "@/components/icon/CommonIcon";
 import {
   LogoIcon,
-  FolderIcon,
   TransmissionIcon,
   SettingIcon,
   ImageIcon,

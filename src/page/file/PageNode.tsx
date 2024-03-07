@@ -1,15 +1,24 @@
 import { useState, useEffect } from "react";
 import type { FC } from "react";
 
-import { Checkbox, Radio, Dropdown, Button } from "antd";
+import { Checkbox, Radio, Dropdown, Button, FloatButton } from "antd";
 import type { CheckboxProps, MenuProps } from "antd";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
+import { ShareAltOutlined, DownloadOutlined } from "@ant-design/icons";
 import classnames from "classnames";
+import { CSSTransition } from "react-transition-group";
 
 import "./PageNode.scss";
 import FolderImg from "@/assets/images/page-node/folder.png";
 import FileImg from "@/assets/images/page-node/file.png";
-import { MoreIcon } from "@/components/icon/CommonIcon";
+import { MoreIcon, FolderIcon } from "@/components/icon/CommonIcon";
+import {
+  AddIcon,
+  UploadFileIcon,
+  UploadFolderIcon,
+  MoveIcon,
+  DeleteIcon,
+} from "@/components/icon/NodeIcon";
 
 interface Node {
   id: number;
@@ -29,13 +38,14 @@ const getRandomInt = (min: number, max: number): number => {
 const PageFile: FC = () => {
   const [nodeList, setNodeList] = useState<Node[]>([]);
 
-  const checkedCount = nodeList.filter((item) => item.checked).length;
+  const checkedCount: number = nodeList.filter((item) => item.checked).length;
 
-  const indeterminate = checkedCount > 0 && checkedCount < nodeList.length;
+  const indeterminate: boolean =
+    checkedCount > 0 && checkedCount < nodeList.length;
 
   const onCheckAllChange: CheckboxProps["onChange"] = (
     e: CheckboxChangeEvent,
-  ) => {
+  ): void => {
     setNodeList((): Node[] => {
       return e.target.checked
         ? nodeList.map((item) => {
@@ -51,7 +61,7 @@ const PageFile: FC = () => {
     });
   };
 
-  const checkNode = (node: Node) => {
+  const checkNode = (node: Node): void => {
     const list = nodeList.slice();
     list.forEach((item) => {
       if (item.id === node.id) {
@@ -88,6 +98,27 @@ const PageFile: FC = () => {
       key: "delete",
       label: "放入回收站",
       danger: true,
+    },
+  ];
+
+  const createItems: MenuProps["items"] = [
+    {
+      key: "uploadFile",
+      icon: <UploadFileIcon />,
+      label: "上传文件",
+    },
+    {
+      key: "uploadFolder",
+      icon: <UploadFolderIcon />,
+      label: "上传文件夹",
+    },
+    {
+      type: "divider",
+    },
+    {
+      key: "createFolder",
+      icon: <FolderIcon />,
+      label: "新建文件夹",
     },
   ];
 
@@ -130,6 +161,7 @@ const PageFile: FC = () => {
               className={classnames("node-item", {
                 "is-checked": node.checked,
               })}
+              title={node.name}
               key={node.id}
             >
               <div className="node-check">
@@ -158,6 +190,32 @@ const PageFile: FC = () => {
             </div>
           ))}
         </div>
+        <Dropdown menu={{ items: createItems }} placement="topRight">
+          <FloatButton
+            type="primary"
+            icon={<AddIcon />}
+            className="create-btn"
+          />
+        </Dropdown>
+        <CSSTransition
+          in={indeterminate}
+          timeout={500}
+          classNames="fade"
+          unmountOnExit
+        >
+          <FloatButton.Group shape="square" className="checked-btn-group">
+            <FloatButton
+              className="checked-btn-item"
+              icon={<ShareAltOutlined />}
+            />
+            <FloatButton
+              className="checked-btn-item"
+              icon={<DownloadOutlined />}
+            />
+            <FloatButton className="checked-btn-item" icon={<MoveIcon />} />
+            <FloatButton className="checked-btn-item" icon={<DeleteIcon />} />
+          </FloatButton.Group>
+        </CSSTransition>
       </div>
     </div>
   );
