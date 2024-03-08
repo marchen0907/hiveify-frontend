@@ -2,7 +2,7 @@ import type { FC } from "react";
 
 import { Layout, Avatar, Dropdown, Button, Divider } from "antd";
 import type { MenuProps } from "antd";
-import { CloudSyncOutlined, UserOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import classnames from "classnames";
@@ -12,16 +12,11 @@ import { removeUser } from "@/store/modules/userSlice";
 import { FolderIcon, MoreIcon } from "@/components/icon/CommonIcon";
 import {
   LogoIcon,
-  TransmissionIcon,
   SettingIcon,
   ImageIcon,
   DocumentIcon,
   VideoIcon,
   AudioIcon,
-  UploadIcon,
-  DownloadIcon,
-  SucceedIcon,
-  SyncIcon,
 } from "@/components/icon/SiderIcon";
 
 import "./PageSider.scss";
@@ -56,121 +51,6 @@ const PageSider: FC = () => {
     },
   ];
 
-  const GroupSub = () => {
-    return (
-      <>
-        <Link
-          to="/group/image"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/group/image",
-          })}
-        >
-          <ImageIcon />
-          <span className="sub-tab-item-text">图片</span>
-        </Link>
-        <Link
-          to="/group/document"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/group/document",
-          })}
-        >
-          <DocumentIcon />
-          <span className="sub-tab-item-text">文档</span>
-        </Link>
-        <Link
-          to="/group/video"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/group/video",
-          })}
-        >
-          <VideoIcon />
-          <span className="sub-tab-item-text">视频</span>
-        </Link>
-        <Link
-          to="/group/audio"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/group/audio",
-          })}
-        >
-          <AudioIcon />
-          <span className="sub-tab-item-text">音频</span>
-        </Link>
-        <Link
-          to="/group/other"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/group/other",
-          })}
-        >
-          <MoreIcon />
-          <span className="sub-tab-item-text">其他</span>
-        </Link>
-        <Divider />
-        <Link
-          to="/group/recycle"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/group/recycle",
-          })}
-        >
-          <span>回收站</span>
-        </Link>
-      </>
-    );
-  };
-
-  const TransmissionSub = () => {
-    return (
-      <>
-        <Link
-          to="/transmission/upload"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/transmission/upload",
-          })}
-        >
-          <UploadIcon />
-          <span className="sub-tab-item-text">上传</span>
-        </Link>
-        <Link
-          to="/transmission/upload"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/transmission/download",
-          })}
-        >
-          <DownloadIcon />
-          <span className="sub-tab-item-text">下载</span>
-        </Link>
-        <Link
-          to="/transmission/finished"
-          className={classnames("sub-tab-item", {
-            "is-active": location.pathname === "/transmission/finished",
-          })}
-        >
-          <SucceedIcon />
-          <span className="sub-tab-item-text">已完成</span>
-        </Link>
-      </>
-    );
-  };
-
-  const SyncSub = () => {
-    return (
-      <>
-        <SyncIcon className="sync-icon" />
-        <span className="sync-name">Laptop-wujunyi</span>
-        <span className="sync-system">linux</span>
-      </>
-    );
-  };
-
-  const ShowSubTab = () => {
-    if (location.pathname.startsWith("/transmission/")) {
-      return <TransmissionSub />;
-    } else if (location.pathname.startsWith("/sync/")) {
-      return <SyncSub />;
-    } else {
-      return <GroupSub />;
-    }
-  };
-
   return (
     <>
       <Sider width={78} theme="light">
@@ -185,24 +65,6 @@ const PageSider: FC = () => {
             >
               <FolderIcon className="sider-tab-item-icon" />
               <span className="sider-tab-item-text">文件</span>
-            </Link>
-            <Link
-              className={classnames("sider-tab-item", {
-                "is-active": location.pathname === "/transmission",
-              })}
-              to="/transmission"
-            >
-              <TransmissionIcon className="sider-tab-item-icon" />
-              <span className="sider-tab-item-text">传输</span>
-            </Link>
-            <Link
-              className={classnames("sider-tab-item", {
-                "is-active": location.pathname === "/sync",
-              })}
-              to="/sync"
-            >
-              <CloudSyncOutlined className="sider-tab-item-icon" />
-              <span className="sider-tab-item-text">同步</span>
             </Link>
           </div>
           <div className="sider-tab-bottom">
@@ -227,7 +89,60 @@ const PageSider: FC = () => {
       <Sider width={168} theme="light">
         <div className="sub-tab">
           <div className="sub-tab-content">
-            <ShowSubTab />
+            <Link
+              to="/group/image"
+              className={classnames("sub-tab-item", {
+                "is-active": location.pathname === "/group/image",
+              })}
+            >
+              <ImageIcon />
+              <span className="sub-tab-item-text">图片</span>
+            </Link>
+            <Link
+              to="/group/document"
+              className={classnames("sub-tab-item", {
+                "is-active": location.pathname === "/group/document",
+              })}
+            >
+              <DocumentIcon />
+              <span className="sub-tab-item-text">文档</span>
+            </Link>
+            <Link
+              to="/group/video"
+              className={classnames("sub-tab-item", {
+                "is-active": location.pathname === "/group/video",
+              })}
+            >
+              <VideoIcon />
+              <span className="sub-tab-item-text">视频</span>
+            </Link>
+            <Link
+              to="/group/audio"
+              className={classnames("sub-tab-item", {
+                "is-active": location.pathname === "/group/audio",
+              })}
+            >
+              <AudioIcon />
+              <span className="sub-tab-item-text">音频</span>
+            </Link>
+            <Link
+              to="/group/other"
+              className={classnames("sub-tab-item", {
+                "is-active": location.pathname === "/group/other",
+              })}
+            >
+              <MoreIcon />
+              <span className="sub-tab-item-text">其他</span>
+            </Link>
+            <Divider />
+            <Link
+              to="/group/recycle"
+              className={classnames("sub-tab-item", {
+                "is-active": location.pathname === "/group/recycle",
+              })}
+            >
+              <span>回收站</span>
+            </Link>
           </div>
         </div>
       </Sider>
